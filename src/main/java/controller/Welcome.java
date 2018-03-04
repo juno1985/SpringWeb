@@ -1,5 +1,8 @@
 package controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,7 +17,10 @@ public class Welcome extends AbstractController {
 		
 		System.out.println("收到了客户端的请求");
 		
-		return null;
+		Map<String, String> username = new HashMap<>();
+		username.put("uname", "MARK");
+		
+		return new ModelAndView("welcome",username);
 	}
 
 }
