@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import model.Computer;
 
@@ -38,6 +39,26 @@ public class ComputerController {
 		System.out.println("----->"+id);
 		
 		computerList.remove(Integer.parseInt(id));
+		
+		return "redirect:/computer/list";
+	}
+	
+	@RequestMapping(path="/add", method = RequestMethod.GET)
+	public String goComputerView(){
+		return "comAdd";
+	}
+	
+	@RequestMapping(path="/add", method = RequestMethod.POST)
+	public String addComputer(@RequestParam String tradeMark, 
+				@RequestParam String price){
+		
+		System.out.println(tradeMark + "  " + price);
+		
+		int index = computerList.size();
+		
+		Computer computer = new Computer(index+1, tradeMark, Integer.parseInt(price));
+		
+		computerList.put(index+1, computer);
 		
 		return "redirect:/computer/list";
 	}
