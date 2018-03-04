@@ -10,11 +10,14 @@
 </head>
 <body>
 <table border="1" >
-<tr><th>名称</th><th>价格</th></tr>
+
 <tr>
 	
-<c:forEach items="${mList }" var="mobile">
-	<tr><td>${mobile.tradeMark }</td><td>${mobile.price }</td></tr>
+<c:forEach items="${comList }" var="computer">
+	<tr><td>${computer.value.tradeMark }</td>
+	<td>${computer.value.price }</td>
+	<td><a href="delete/${computer.value.id }">删除</a></td>
+	</tr>
 </c:forEach>
 </tr>
 </table>
