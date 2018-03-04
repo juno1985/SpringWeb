@@ -1,26 +1,25 @@
 package controller;
 
-import java.util.HashMap;
-import java.util.Map;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+@Controller
+public class Welcome  {
 
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.AbstractController;
-
-public class Welcome extends AbstractController {
-
-	@Override
-	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		
+	@RequestMapping(path="/hello",method = RequestMethod.GET)
+	public String helloUser(@RequestParam(required=false) String uname, Model model){
 		System.out.println("收到了客户端的请求");
-		
-		Map<String, String> username = new HashMap<>();
-		username.put("uname", "MARK");
-		
-		return new ModelAndView("welcome",username);
+		model.addAttribute("uname", uname);
+		return "welcome";
 	}
-
+	
+	@RequestMapping(path="/user",method = RequestMethod.GET)
+	public String user(@RequestParam(required=false) String uname, Model model){
+		System.out.println("收到了客户端的请求");
+		model.addAttribute("uname", uname);
+		return "welcome";
+	}
 }
