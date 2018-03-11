@@ -32,5 +32,9 @@ public class Computer {
 		this.tradeMark = tradeMark;
 		this.price = price;
 	}
+	@Override
+	public String toString() {
+		return "Computer [id=" + id + ", tradeMark=" + tradeMark + ", price=" + price + "]";
+	}
 	
 }

@@ -62,4 +62,28 @@ public class ComputerController {
 		
 		return "redirect:/computer/list";
 	}
+	
+	@RequestMapping(path="/update/{id}", method = RequestMethod.GET)
+	public String updateComputerView(@PathVariable String id, Model model){
+		Computer computer = computerList.get(Integer.parseInt(id));
+		
+	/*	System.out.println(computer);*/
+		
+		model.addAttribute("comp", computer);
+		return "comUpdate";
+	}
+	
+	@RequestMapping(path="/update/{id}", method = RequestMethod.POST)
+	public String updateComputer(@PathVariable String id, @RequestParam String tradeMark, @RequestParam String price){
+		
+		System.out.println("id: "+id+" tradeMark: "+tradeMark+" price: "+price);
+		
+		Integer comId = Integer.parseInt(id);
+		
+		Computer computer = new Computer(comId, tradeMark, Integer.parseInt(price));
+		
+		computerList.put(comId, computer);
+		
+		return "redirect:/computer/list";
+	}
 }

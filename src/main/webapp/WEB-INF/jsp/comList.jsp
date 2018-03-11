@@ -17,6 +17,8 @@
 	<tr><td>${computer.value.tradeMark }</td>
 	<td>${computer.value.price }</td>
 	<td><a href="delete/${computer.value.id }">删除</a></td>
+	
+	<td><a href="update/${computer.value.id }">更新</a></td>
 	</tr>
 </c:forEach>
 </tr>
