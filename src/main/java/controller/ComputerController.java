@@ -86,4 +86,10 @@ public class ComputerController {
 		
 		return "redirect:/computer/list";
 	}
+	
+	@RequestMapping(path="/add2", method = RequestMethod.GET)
+	public String goComputerView2(){
+		return "comAdd2";
+	}
+	
 }

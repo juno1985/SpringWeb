@@ -23,4 +23,6 @@
 	    <property name="prefix" value="/WEB-INF/jsp/"/>
 	    <property name="suffix" value=".jsp"/>
 	</bean>
+	<!-- 不让SpringDispatcher拦截/resources下的静态资源 -->
+	<mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
 </beans>
