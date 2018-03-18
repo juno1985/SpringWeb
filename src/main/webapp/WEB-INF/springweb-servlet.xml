@@ -14,7 +14,7 @@
 
 	<!-- <bean name="/hello" class="controller.Welcome"></bean> -->
 	<!-- 定义在那个包中去扫描annotation -->
-	<context:component-scan base-package="controller"></context:component-scan>
+	<context:component-scan base-package="controller model"></context:component-scan>
 	<!-- 开启spring的annotaion开关 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<bean id="viewResolver"
