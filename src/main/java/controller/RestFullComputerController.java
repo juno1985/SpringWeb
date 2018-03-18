@@ -1,5 +1,6 @@
 package controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,10 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import MyException.PCFormException;
 import model.AjaxModel;
 import model.Computer;
+import service.ComputerService;
 
 @RestController
 @RequestMapping(path="/RESTComputer")
 public class RestFullComputerController {
+	
+	@Autowired
+	private ComputerService computerService;
 
 	@ResponseBody
 	@RequestMapping(path="/add", method=RequestMethod.POST)
@@ -33,6 +38,8 @@ public class RestFullComputerController {
 		 * 进行add computer操作
 		 * 。。。。。。。。。。。
 		 * */
+		
+		computerService.addComputer(computer);
 		
 		AjaxModel am = new AjaxModel(200, "computer added successfully!");
 		
