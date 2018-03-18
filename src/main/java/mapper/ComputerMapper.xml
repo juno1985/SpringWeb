@@ -1,0 +1,18 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+	namespace: mapper接口的全限定名
+	select id: mapper接口中的方法
+	resultType: mapper接口中的方法的返回类型/注意如果是List<ComputerPojo>,
+				则应该写成ComputerPojo而不是java.util.List
+ -->
+
+<mapper namespace="mapper.ComputerMapper">
+
+	<select id="getAllComputers" resultType="pojo.ComputerPojo">
+		SELECT id AS cid, tradeMark, price, pic FROM computer
+	</select>
+
+</mapper>
