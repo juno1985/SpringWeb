@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import MyException.PCFormException;
 import model.AjaxModel;
 import model.Computer;
 
@@ -21,7 +22,8 @@ public class RestFullComputerController {
 	public AjaxModel addComputer(@RequestBody @Validated Computer computer, BindingResult result){
 		
 		if(result.hasErrors()){
-			System.out.println(result.getFieldError().getDefaultMessage());
+			/*System.out.println(result.getFieldError().getDefaultMessage());*/
+			throw new PCFormException(result.getFieldError().getDefaultMessage());
 		}
 		
 /*		System.out.println(computer.getTradeMark());
