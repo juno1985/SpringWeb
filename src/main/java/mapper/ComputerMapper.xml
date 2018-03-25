@@ -12,7 +12,7 @@
 <mapper namespace="mapper.ComputerMapper">
 
 	<select id="getAllComputers" resultType="pojo.ComputerPojo">
-		SELECT id AS cid, tradeMark, price, pic FROM computer
+		SELECT id as cid, tradeMark, price, pic FROM computer
 	</select>
 
 </mapper>
