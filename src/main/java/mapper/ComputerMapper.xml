@@ -23,7 +23,7 @@
 	<!-- public ComputerPojo getByIdAndTradeMark(Integer cid, Float price); -->
 	<select id="getByIdAndTradeMark" resultType="pojo.ComputerPojo">
 		SELECT id AS cid, tradeMark, price, pic FROM computer WHERE id = #{cid}
-			AND tradeMark LIKE #{tradeMark}
+			AND tradeMark LIKE ${tradeMark}
 	</select>
 	
 	<!-- public ComputerPojo getByIdAndTradeMarkUsingParamMap(Integer cid, String tradeMark); -->
@@ -41,4 +41,10 @@
 		SELECT id AS cid, tradeMark, price, pic FROM computer WHERE id = #{cid}
 			AND tradeMark LIKE #{tradeMark}
 	</select>
+	
+	<!-- public List<ComputerPojo> getAllComputersByTabName(String tableName); -->
+	<select id="getAllComputersByTabName" resultType="pojo.ComputerPojo">
+		SELECT id as cid, tradeMark, price, pic FROM ${tableName}
+	</select>
+	
 </mapper>

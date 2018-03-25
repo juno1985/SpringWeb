@@ -18,4 +18,5 @@ public interface ComputerMapper {
 	
 	public ComputerPojo getByPojo(ComputerPojo computerPojo);
 	
+	public List<ComputerPojo> getAllComputersByTabName(@Param(value="tableName")String tableName);
 }

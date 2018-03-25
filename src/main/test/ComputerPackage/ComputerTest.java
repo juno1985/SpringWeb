@@ -37,7 +37,7 @@ public class ComputerTest {
 	
 	@Test
 	public void testGetByIdAndTradeMark(){
-		ComputerPojo comPojo = computerMapper.getByIdAndTradeMark(1, "hp%");
+		ComputerPojo comPojo = computerMapper.getByIdAndTradeMark(1, "\"hp\"" + "or 1 = 1");
 		System.out.println(comPojo);
 	}
 	
@@ -55,5 +55,10 @@ public class ComputerTest {
 		System.out.println(computerMapper.getByPojo(computerPojo));
 	}
 	
+	@Test
+	public void testGetAllComputersByTabName(){
+		List<ComputerPojo> comList = computerMapper.getAllComputersByTabName("computer");
+		System.out.println(comList);
+	}
 
 }
