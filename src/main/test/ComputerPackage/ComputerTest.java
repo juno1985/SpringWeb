@@ -60,5 +60,34 @@ public class ComputerTest {
 		List<ComputerPojo> comList = computerMapper.getAllComputersByTabName("computer");
 		System.out.println(comList);
 	}
+	
+	@Test
+	public void testInsertComputer(){
+		ComputerPojo computerPojo = new ComputerPojo();
+		computerPojo.setTradeMark("axus电脑");
+		computerPojo.setPrice(8888.99f);
+		//作业: 完成电脑添加功能,要求完成JSP/controller/service
+		/**提示
+		 * JSP:要有form传tradeMark/price/pic
+		 * Controller:要得到来自JSP的参数
+		 * Service:要调用ComputerMapper的insertComputer方法
+		 * 最好使用异步,即页面jsp能收到添加成功或失败的返回
+		 * 尝试引入BOOTSTRAP
+		 */
+		computerPojo.setPic("xxxxxxxx.png");
+		computerMapper.insertComputer(computerPojo);
+	}
+	
+	@Test
+	public void testDeleteComputer(){
+		computerMapper.deleteComputer(6);
+	}
+	
+	@Test
+	public void testUpdateComputerPrice(){
+		ComputerPojo computerPojo = computerMapper.getById(3);
+		computerPojo.setPrice(6666.66f);
+		computerMapper.updateComputerPrice(computerPojo);
+	}
 
 }

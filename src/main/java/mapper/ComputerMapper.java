@@ -19,4 +19,10 @@ public interface ComputerMapper {
 	public ComputerPojo getByPojo(ComputerPojo computerPojo);
 	
 	public List<ComputerPojo> getAllComputersByTabName(@Param(value="tableName")String tableName);
+	
+	public void insertComputer(ComputerPojo computerPojo);
+	
+	public void deleteComputer(@Param(value="cid") Integer cid);
+	
+	public void updateComputerPrice(ComputerPojo computerPojo);
 }

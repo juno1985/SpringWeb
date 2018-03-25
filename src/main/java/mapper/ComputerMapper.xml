@@ -47,4 +47,18 @@
 		SELECT id as cid, tradeMark, price, pic FROM ${tableName}
 	</select>
 	
+	<!-- public void insertComputer(ComputerPojo computerPojo); -->
+	<insert id="insertComputer" >
+		insert into computer(tradeMark, price, pic) values(#{tradeMark},#{price},#{pic})
+	</insert>
+	
+	<!-- public void deleteComputer(@Param(value="cid") Integer cid); -->
+	<delete id="deleteComputer">
+		delete from computer where id = #{cid}
+	</delete>
+	
+	<!-- public void updateComputerPrice(ComputerPojo computerPojo); -->
+	<update id="updateComputerPrice">
+		UPDATE computer SET price = #{price} WHERE id = #{cid}
+	</update>
 </mapper>
