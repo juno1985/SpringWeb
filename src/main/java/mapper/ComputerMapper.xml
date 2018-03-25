@@ -14,5 +14,16 @@
 	<select id="getAllComputers" resultType="pojo.ComputerPojo">
 		SELECT id as cid, tradeMark, price, pic FROM computer
 	</select>
-
+	
+	<!-- public ComputerPojo getById(); -->
+	<select id="getById" resultType="pojo.ComputerPojo">
+		SELECT id AS cid, tradeMark, price, pic FROM computer WHERE id = #{computerId}
+	</select>
+	
+	<!-- public ComputerPojo getByIdAndTradeMark(Integer cid, Float price); -->
+	<select id="getByIdAndTradeMark" resultType="pojo.ComputerPojo">
+		SELECT id AS cid, tradeMark, price, pic FROM computer WHERE id = #{cid}
+			AND tradeMark LIKE #{tradeMark}
+	</select>
+	
 </mapper>
