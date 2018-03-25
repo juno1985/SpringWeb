@@ -19,6 +19,11 @@
     <servlet>
         <servlet-name>springweb</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!-- 更改springweb的默认配置文件位置,否则必须在WEB-INF下并以'servlet-name'-servlet.xml命名 -->
+         <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:/spring/springweb-servlet.xml</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
