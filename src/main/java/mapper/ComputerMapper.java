@@ -13,4 +13,9 @@ public interface ComputerMapper {
 	
 	public ComputerPojo getByIdAndTradeMark(@Param(value="cid")Integer cid
 				, @Param(value="tradeMark")String tradeMark);
+	
+	public ComputerPojo getByIdAndTradeMarkUsingParamMap(Integer cid, String tradeMark);
+	
+	public ComputerPojo getByPojo(ComputerPojo computerPojo);
+	
 }

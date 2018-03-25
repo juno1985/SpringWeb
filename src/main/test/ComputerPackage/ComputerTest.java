@@ -40,4 +40,20 @@ public class ComputerTest {
 		ComputerPojo comPojo = computerMapper.getByIdAndTradeMark(1, "hp%");
 		System.out.println(comPojo);
 	}
+	
+	@Test
+	public void testGetByIdAndTradeMarkUsingParamMap(){
+		ComputerPojo comPojo = computerMapper.getByIdAndTradeMark(1, "hp%");
+		System.out.println(comPojo);
+	}
+	
+	@Test
+	public void testGetByPojo(){
+		ComputerPojo computerPojo = new ComputerPojo();
+		computerPojo.setCid(1);
+		computerPojo.setTradeMark("hp%");
+		System.out.println(computerMapper.getByPojo(computerPojo));
+	}
+	
+
 }

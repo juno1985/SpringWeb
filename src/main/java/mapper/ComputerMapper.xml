@@ -26,4 +26,19 @@
 			AND tradeMark LIKE #{tradeMark}
 	</select>
 	
+	<!-- public ComputerPojo getByIdAndTradeMarkUsingParamMap(Integer cid, String tradeMark); -->
+	<!-- MyBatis传参时,默认封装到Map结合里
+			key param1,param2,param3
+			value #{param1},#{param2},#{param3}
+	 -->
+		<select id="getByIdAndTradeMarkUsingParamMap" resultType="pojo.ComputerPojo">
+		SELECT id AS cid, tradeMark, price, pic FROM computer WHERE id = #{param1}
+			AND tradeMark LIKE #{param2}
+	</select>
+	
+	<!-- public ComputerPojo getByPojo(ComputerPojo computerPojo); -->
+	<select id="getByPojo" resultType="pojo.ComputerPojo">
+		SELECT id AS cid, tradeMark, price, pic FROM computer WHERE id = #{cid}
+			AND tradeMark LIKE #{tradeMark}
+	</select>
 </mapper>
