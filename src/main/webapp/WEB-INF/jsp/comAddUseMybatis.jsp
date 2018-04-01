@@ -12,18 +12,39 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/popper.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/bootstrap.min.js"></script>
+<!-- 引入jquery的第三方插件,表单提交功能 -->
+<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.form.js"></script>
 </head>
 <style type="text/css">
 body{
 	margin-top:20px;
 }
 </style>
+<input id="ctx" type="hidden" value="<%=request.getContextPath() %>">
+
+<script type="text/javascript">
+$(document).ready(function(){
+	/**网页加载时会执行下面的行数*/
+	/*绑定id为formSubmit的按钮的click事件*/
+	$('#formSubmit').on('click',function(){
+		$('#pcForm').ajaxSubmit({
+			url:"${ctx}/demo/RESTComputer/comAddUseMybatis",
+			type:'post',
+			complete:function(data){
+				if(data.status == 200)
+					alert("添加电脑成功！");
+			}
+		});
+	});
+});
+</script>
+
 <body>
 <div class="container">
 	<div class="row">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
-			<form class="form" method="post" action="/demo/RESTComputer/comAddUseMybatis" enctype="multipart/form-data">
+			<form id="pcForm" class="form" method="post"  enctype="multipart/form-data">
 			 <div class="form-group">
 				商品名称:<input type="text" name="tradeMark" >
 			 </div>
@@ -33,8 +54,9 @@ body{
 			 <div class="form-group">
 				商品图片:<div id="uploadWrapper"><div><input type="file" name="pic"><br/></div></div>
 			 </div>
-				<input class="float-right btn btn-success" type="submit" value="提交">
+				
 			</form><br/>
+			<button id="formSubmit" class="float-right btn btn-success">添加</button>
 		</div>
 	</div>
 </div>
