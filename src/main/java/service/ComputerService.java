@@ -1,11 +1,18 @@
 package service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import common.UUIDUtil;
 import mapper.ComputerMapper;
+import model.AjaxModel;
 import model.Computer;
 import pojo.ComputerPojo;
 @Service
@@ -14,12 +21,40 @@ public class ComputerService {
 	@Autowired
 	private ComputerMapper computerMapper;
 	
-	public void addComputer(Computer computer){
-		/**
-		 * 连接数据库完成添加computer操作
-		 */
+	public String addComputer(Computer computer){
+		return "success";
+	}
+	
+	public String addComputer(String tradeMark, String price, MultipartFile multipartFile, String realPath) throws IOException{
+		ComputerPojo computerPojo = new ComputerPojo();
+		computerPojo.setPrice(Float.parseFloat(price));
+		computerPojo.setTradeMark(tradeMark);
 		
-		System.out.println("业务层进行添加Computer-->" + computer.toString());
+		//判断上传文件是否为空
+		if(!multipartFile.isEmpty()){
+			//得到上传文件名
+			String fileName = multipartFile.getOriginalFilename();
+			
+			//得到上传文件的扩展名
+			String fileExt = FilenameUtils.getExtension(fileName);
+			
+			//生成新的文件名,避免上传文名重复从而发生覆盖
+			String newFileName = UUIDUtil.UUIDGenerator() + '.' + fileExt;
+			
+			//创建本地实体文件
+			//F:\git-repo\SpringWeb\src\main\webapp\resources\pic + "\" + "Logo.png" 
+			File file = new File(realPath + "\\" + newFileName);
+			
+			//实现文件的上传拷贝
+			FileUtils.copyInputStreamToFile(multipartFile.getInputStream(), file);
+			
+			computerPojo.setPic(newFileName);
+		}
+		
+		computerMapper.insertComputer(computerPojo);
+		
+		return "success";
+		
 	}
 	
 	public List<ComputerPojo> getAllComputerPojo(){

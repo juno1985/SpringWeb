@@ -1,5 +1,7 @@
 package MyException;
 
+import java.io.IOException;
+
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,5 +29,8 @@ public class MyFormExceptionHander {
 		 * */
 		
 	}
+	
+	@ExceptionHandler(IOException.class)
+	public void handlePicUpload(){}
 	
 }
