@@ -10,9 +10,9 @@ $(document).ready(function(){
 			//v-value, i-index
 			data.forEach(function(v,i){
 				/* console.log(v.cid + ' ' + v.tradeMark + ' ' + v.price + ' ' + v.pic); */
-				content += "<tr><td>"+v.cid+"</td><td>"+v.tradeMark+"</td><td>"+v.price+"元</td>"+
-							'<td><a href="/RESTComputer/update/'+v.cid+'">更新</a></td>'+
-							'<td><a href="/RESTComputer/delete/'+v.cid+'">删除</a></td>'+
+				content += "<tr><td>"+v.cid+'</td><td><a href="/demo/RESTComputer/query/'+v.cid+'">'+v.tradeMark+'</a>'+"</td><td>"+v.price+"元</td>"+
+							'<td><a href="/demo/RESTComputer/update/'+v.cid+'">更新</a></td>'+
+							'<td><a href="/demo/RESTComputer/delete/'+v.cid+'">删除</a></td>'+
 							"</tr>";
 			}); 
 			$('#pcTable').append("<tbody>"+content+"</tbody>");

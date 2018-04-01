@@ -63,4 +63,9 @@ public class ComputerService {
 		
 		return comList;
 	}
+	
+	public ComputerPojo getComputer(String cid){
+		ComputerPojo computerPojo = computerMapper.getById(Integer.parseInt(cid));
+		return computerPojo;
+	}
 }
