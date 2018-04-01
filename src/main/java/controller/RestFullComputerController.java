@@ -79,4 +79,12 @@ public class RestFullComputerController {
 		return new ResponseEntity<String>(result, HttpStatus.OK);
 	}
 	
+	@RequestMapping(path="list", method=RequestMethod.GET)
+	public ResponseEntity<List<ComputerPojo>> getAllComputers(){
+		
+		List<ComputerPojo> computerList = computerService.getAllComputerPojo();
+		
+		return new ResponseEntity<List<ComputerPojo>>(computerList, HttpStatus.OK);
+	}
+	
 }
