@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$.ajax({
-		url: "${ctx}/demo/RESTComputer/list",
+		url: "/demo/RESTComputer/list",
 		type: "GET",
 		dataType: "json",
 		success:function(data){
