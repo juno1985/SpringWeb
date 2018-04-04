@@ -1,4 +1,8 @@
+
 $(document).ready(function(){
+	
+	
+	
 	$.ajax({
 		url: "/demo/RESTComputer/list",
 		type: "GET",
@@ -10,7 +14,7 @@ $(document).ready(function(){
 			//v-value, i-index
 			data.forEach(function(v,i){
 				/* console.log(v.cid + ' ' + v.tradeMark + ' ' + v.price + ' ' + v.pic); */
-				content += "<tr><td>"+v.cid+'</td><td><a href="/demo/RESTComputer/query/'+v.cid+'">'+v.tradeMark+'</a>'+"</td><td>"+v.price+"元</td>"+
+				content += "<tr><td>"+v.cid+'</td><td><a id="pc" href="javascript:void(0);" onClick="pcClick(this)" value="'+ v.cid +'">'+v.tradeMark+"</a></td><td>"+v.price+"元</td>"+
 							'<td><a href="/demo/RESTComputer/update/'+v.cid+'">更新</a></td>'+
 							'<td><a href="/demo/RESTComputer/delete/'+v.cid+'">删除</a></td>'+
 							"</tr>";
@@ -18,5 +22,9 @@ $(document).ready(function(){
 			$('#pcTable').append("<tbody>"+content+"</tbody>");
 		}
 	
-	});
+	});	
 });
+function pcClick(obj){
+	console.log(obj.getAttribute("value"));
+}
+
