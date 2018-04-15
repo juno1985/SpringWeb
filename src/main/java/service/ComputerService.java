@@ -75,14 +75,9 @@ public class ComputerService {
 		System.out.println(comPojo);
 		computerMapper.deleteComputer(comPojo.getCid());
 		
-		/*模仿程序发生某种位置错误*/
-		try {
-			throw new PCFormException("程序发生了异常!");
-			
-			}
-		catch(PCFormException pe){
-			pe.printStackTrace();
-		}
+		/*模仿程序发生某种位置错误*/ 
+		if(comPojo != null)
+		throw new PCFormException("程序发生了异常!");
 		
 		comPojo.setPrice(7777.00f);
 		computerMapper.insertComputer(comPojo);
