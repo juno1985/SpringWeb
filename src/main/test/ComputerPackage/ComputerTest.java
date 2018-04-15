@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import MyException.PCFormException;
 import mapper.ComputerMapper;
 import pojo.ComputerPojo;
 import service.ComputerService;
@@ -88,6 +89,11 @@ public class ComputerTest {
 		ComputerPojo computerPojo = computerMapper.getById(3);
 		computerPojo.setPrice(6666.66f);
 		computerMapper.updateComputerPrice(computerPojo);
+	}
+	
+	@Test
+	public void deleteAndAddPC() {
+		computerService.deletePC();
 	}
 
 }

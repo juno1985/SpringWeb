@@ -25,4 +25,6 @@ public interface ComputerMapper {
 	public void deleteComputer(@Param(value="cid") Integer cid);
 	
 	public void updateComputerPrice(ComputerPojo computerPojo);
+	
+	public ComputerPojo selectComputer(String pcName);
 }

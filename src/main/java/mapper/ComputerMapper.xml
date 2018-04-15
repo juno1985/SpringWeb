@@ -61,4 +61,9 @@
 	<update id="updateComputerPrice">
 		UPDATE computer SET price = #{price} WHERE id = #{cid}
 	</update>
+	
+	<!-- public ComputerPojo selectComputer(String pcName); -->
+	<select id="selectComputer" resultType="pojo.ComputerPojo">
+		SELECT id as cid, tradeMark, price, pic FROM computer where tradeMark = #{pcName}
+	</select>
 </mapper>

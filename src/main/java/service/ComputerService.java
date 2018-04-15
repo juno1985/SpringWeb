@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import MyException.PCFormException;
 import common.UUIDUtil;
 import mapper.ComputerMapper;
 import model.AjaxModel;
@@ -67,5 +68,23 @@ public class ComputerService {
 	public ComputerPojo getComputer(String cid){
 		ComputerPojo computerPojo = computerMapper.getById(Integer.parseInt(cid));
 		return computerPojo;
+	}
+	
+	public void deletePC() {
+		ComputerPojo comPojo = computerMapper.selectComputer("小新电脑");
+		System.out.println(comPojo);
+		computerMapper.deleteComputer(comPojo.getCid());
+		
+		/*模仿程序发生某种位置错误*/
+		try {
+			throw new PCFormException("程序发生了异常!");
+			
+			}
+		catch(PCFormException pe){
+			pe.printStackTrace();
+		}
+		
+		comPojo.setPrice(7777.00f);
+		computerMapper.insertComputer(comPojo);
 	}
 }

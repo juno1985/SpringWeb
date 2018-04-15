@@ -125,7 +125,11 @@
       <artifactId>spring-jdbc</artifactId>
       <version>${spring.version}</version>
     </dependency>
-				
+	<dependency>
+ 	    <groupId>org.aspectj</groupId>
+ 	    <artifactId>aspectjweaver</artifactId>
+ 	    <version>1.8.13</version>
+ 	</dependency>
   </dependencies>
   <build>
     <finalName>SpringWeb</finalName>
