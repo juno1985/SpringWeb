@@ -17,6 +17,9 @@
 </head>
 
 <body>
+
+<jsp:include page="/jsp/pop-window.jsp" />
+
 <input type="hidden" id="ctx" value="<%=request.getContextPath() %>"/>
 
 <div class="container">

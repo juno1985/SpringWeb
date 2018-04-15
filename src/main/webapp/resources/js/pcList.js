@@ -1,8 +1,4 @@
-
 $(document).ready(function(){
-	
-	
-	
 	$.ajax({
 		url: "/demo/RESTComputer/list",
 		type: "GET",
@@ -25,6 +21,20 @@ $(document).ready(function(){
 	});	
 });
 function pcClick(obj){
-	console.log(obj.getAttribute("value"));
+//	alert(obj.getAttribute("value"));
+	$('#myModal').modal();
+	var cid = obj.getAttribute("value");
+	$.ajax({
+	
+		url: "/demo/RESTComputer/query/" + cid,
+		type: "GET",
+		dataType: "json",
+		success:function(data){
+				/*console.log(data.cid + ' ' + data.tradeMark + ' ' + data.price + ' ' + data.pic);*/
+				$('#trade_mark').text("商品名称:  " + data.tradeMark);
+				$('#pcprice').text("商品价格: " + data.price + "元");
+				$('#pcpic').attr("src", "/demo/resources/pic/" + data.pic);
+			}
+	});	
 }
 
