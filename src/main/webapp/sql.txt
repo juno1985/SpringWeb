@@ -1,0 +1,2 @@
+USE mybatis;
+ALTER TABLE computer CHANGE price price FLOAT(7,2);
