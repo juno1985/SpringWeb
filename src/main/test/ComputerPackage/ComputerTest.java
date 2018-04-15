@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import MyException.PCFormException;
 import mapper.ComputerMapper;
+import pojo.ComputerComment;
 import pojo.ComputerPojo;
 import service.ComputerService;
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -114,6 +115,12 @@ public class ComputerTest {
 		comPojo.setTradeMark("MAC Book");
 		
 		computerMapper.updateDynamicComputer(comPojo);
+	}
+	
+	@Test
+	public void getComputerCommentsById() {
+		List<ComputerComment> CCs = computerMapper.getComputerCommentById(1);
+		System.out.println(CCs);
 	}
 
 }

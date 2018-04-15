@@ -2,6 +2,8 @@ package mapper;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import pojo.ComputerComment;
 import pojo.ComputerPojo;
 
 public interface ComputerMapper {
@@ -31,4 +33,6 @@ public interface ComputerMapper {
 	public List<ComputerPojo> getDynamicComputer(ComputerPojo computerPojo);
 	
 	public void updateDynamicComputer(ComputerPojo computerPojo);
+	
+	public List<ComputerComment> getComputerCommentById(@Param(value="cid")Integer cid);
 }

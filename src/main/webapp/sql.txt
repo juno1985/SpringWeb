@@ -1,2 +1,19 @@
 USE mybatis;
 ALTER TABLE computer CHANGE price price FLOAT(7,2);
+
+
+CREATE TABLE pc_comment(
+	id INT(11) AUTO_INCREMENT,
+	pc_comment VARCHAR(255),
+	pc_star INT(11),
+	fk INT(11),
+	PRIMARY KEY(id),
+	FOREIGN KEY(fk) REFERENCES `computer`(id)
+)
+
+INSERT INTO pc_comment(pc_comment,pc_star,fk)
+VALUES("这个电脑不错",5,1);
+INSERT INTO pc_comment(pc_comment,pc_star,fk)
+VALUES("这个电脑一点都不好",1,1);
+INSERT INTO pc_comment(pc_comment,pc_star,fk)
+VALUES("这个电脑一般",3,1);

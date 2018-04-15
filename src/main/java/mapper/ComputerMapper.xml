@@ -11,6 +11,19 @@
 
 <mapper namespace="mapper.ComputerMapper">
 
+	<resultMap type="pojo.ComputerComment" id="computerComment">
+		<id column="cid" property="cid"></id>
+		<result column="tradeMark" property="tradeMark"></result>
+		<result column="price" property="price"></result>
+		<result column="pic" property="pic"></result>
+		<collection property="comments" ofType="pojo.Comment">
+			<result column="pc_comment" property="pc_comment"></result>
+			<result column="pc_star" property="pc_star"></result>
+		</collection>
+	</resultMap>
+
+
+
 	<select id="getAllComputers" resultType="pojo.ComputerPojo">
 		SELECT id as cid, tradeMark, price, pic FROM computer
 	</select>
@@ -96,4 +109,14 @@
 		</set>
 		where id = #{cid}
 	</update>
+	
+	<!-- public List<ComputerComment> getComputerCommentById(@Param(value="cid")Integer cid); -->
+	<select id="getComputerCommentById" resultMap="computerComment">
+		SELECT computer.id AS cid,computer.tradeMark,computer.price,computer.pic,
+			pc_comment.pc_comment,pc_comment.pc_star
+			FROM computer
+			LEFT JOIN pc_comment
+			ON computer.id=pc_comment.fk
+		WHERE computer.id=#{cid}
+	</select>
 </mapper>
