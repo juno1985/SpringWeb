@@ -82,4 +82,18 @@
 				</if>
 			</where>
 	</select>
+	
+	<!-- public void updateDynamicComputer(ComputerPojo computerPojo); -->
+	<update id="updateDynamicComputer">
+		update computer
+		<set>
+			<if test="tradeMark != null">
+				tradeMark = #{tradeMark},
+			</if>
+			<if test="price != null">
+				price = #{price}
+			</if>
+		</set>
+		where id = #{cid}
+	</update>
 </mapper>

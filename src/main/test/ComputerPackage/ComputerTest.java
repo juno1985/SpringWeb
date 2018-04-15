@@ -106,5 +106,14 @@ public class ComputerTest {
 		
 		System.out.println(computerMapper.getDynamicComputer(comPojo));
 	}
+	
+	@Test
+	public void updateDynamicPC() {
+		ComputerPojo comPojo = computerMapper.getById(6);
+		
+		comPojo.setTradeMark("MAC Book");
+		
+		computerMapper.updateDynamicComputer(comPojo);
+	}
 
 }
