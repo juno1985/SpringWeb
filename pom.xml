@@ -130,6 +130,11 @@
  	    <artifactId>aspectjweaver</artifactId>
  	    <version>1.8.13</version>
  	</dependency>
+ 	<dependency>
+		<groupId>org.mybatis.generator</groupId>
+		<artifactId>mybatis-generator-core</artifactId>
+		<version>1.3.2</version>
+	</dependency>
   </dependencies>
   <build>
     <finalName>SpringWeb</finalName>
