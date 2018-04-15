@@ -27,4 +27,6 @@ public interface ComputerMapper {
 	public void updateComputerPrice(ComputerPojo computerPojo);
 	
 	public ComputerPojo selectComputer(String pcName);
+	
+	public List<ComputerPojo> getDynamicComputer(ComputerPojo computerPojo);
 }

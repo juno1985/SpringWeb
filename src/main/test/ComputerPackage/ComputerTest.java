@@ -95,5 +95,16 @@ public class ComputerTest {
 	public void deleteAndAddPC() {
 		computerService.deletePC();
 	}
+	
+	@Test
+	public void getDynamicPC() {
+		ComputerPojo comPojo = new ComputerPojo();
+		
+//		comPojo.setPrice(1200.01f);
+		
+		comPojo.setTradeMark("MAC电脑");
+		
+		System.out.println(computerMapper.getDynamicComputer(comPojo));
+	}
 
 }

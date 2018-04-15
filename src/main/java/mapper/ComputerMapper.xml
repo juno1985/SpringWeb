@@ -66,4 +66,20 @@
 	<select id="selectComputer" resultType="pojo.ComputerPojo">
 		SELECT id as cid, tradeMark, price, pic FROM computer where tradeMark = #{pcName}
 	</select>
+	
+	<!-- public List<ComputerPojo> getDynamicComputer(ComputerPojo computerPojo); -->
+	<select id="getDynamicComputer" resultType="pojo.ComputerPojo">
+		SELECT id as cid, tradeMark, price, pic FROM computer
+			<where>
+				<if test="cid != null">
+					id = #{cid}
+				</if>
+				<if test="tradeMark != null">
+					and tradeMark = #{tradeMark}
+				</if>
+				<if test="price != null">
+					and price = #{price}
+				</if>
+			</where>
+	</select>
 </mapper>

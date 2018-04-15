@@ -2,24 +2,25 @@ package pojo;
 
 public class ComputerPojo {
 
-	private int cid;
+	private Integer cid;
 	private String tradeMark;
-	private float price;
+	private Float price;
 	private String pic;
 	public ComputerPojo() {
 		super();
 	}
-	public ComputerPojo(int cid, String tradeMark, float price, String pic) {
+	public ComputerPojo(Integer cid, String tradeMark, Float price, String pic) {
 		super();
 		this.cid = cid;
 		this.tradeMark = tradeMark;
 		this.price = price;
 		this.pic = pic;
 	}
-	public int getCid() {
+
+	public Integer getCid() {
 		return cid;
 	}
-	public void setCid(int cid) {
+	public void setCid(Integer cid) {
 		this.cid = cid;
 	}
 	public String getTradeMark() {
@@ -28,10 +29,10 @@ public class ComputerPojo {
 	public void setTradeMark(String tradeMark) {
 		this.tradeMark = tradeMark;
 	}
-	public float getPrice() {
+	public Float getPrice() {
 		return price;
 	}
-	public void setPrice(float price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 	public String getPic() {
