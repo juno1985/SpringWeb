@@ -19,7 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import MyException.PCFormException;
+import com.github.pagehelper.PageHelper;
+
 import mapper.ComputerMapper;
 import pojo.ComputerComment;
 import pojo.ComputerPojo;
@@ -200,6 +201,12 @@ public class ComputerTest {
 		for(MbgComment mbgC : mbgCommentList) {
 			System.out.println(mbgC.getPcComment());
 		}
+	}
+	
+	@Test
+	public void testPageHelper() {
+		PageHelper.startPage(3, 6);
+		System.out.println(computerMapper.getAllComputers());
 	}
 
 }
