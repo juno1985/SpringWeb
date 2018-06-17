@@ -1,0 +1,20 @@
+USE mybatis;
+CREATE TABLE sort_test (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(255) NOT NULL,
+	`score` FLOAT(4,2) DEFAULT NULL,
+	PRIMARY KEY(`id`)
+)
+
+DELIMITER ;; 
+CREATE PROCEDURE test_insert() 
+BEGIN 
+DECLARE Y INT(11) DEFAULT 0;
+WHILE Y<10000
+DO
+INSERT INTO sort_test(`name`, `score`) VALUES(SUBSTRING(MD5(RAND()),FLOOR(RAND()*26)+1,6),5 + RAND() * 60); 
+SET Y=Y+1; 
+END WHILE ; 
+COMMIT; 
+END;; 
+CALL test_insert();
