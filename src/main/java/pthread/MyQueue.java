@@ -16,7 +16,6 @@ public class MyQueue {
 	// 消费者和生产者使用的锁
 	private final Object obj = new Object();
 
-	
 	// 懒汉的单列模式
 	private static MyQueue myQueue = null;
 	@SuppressWarnings("unused")
@@ -27,7 +26,7 @@ public class MyQueue {
 		return myQueue;
 	}
 	
-	public MyQueue() {
+	private MyQueue() {
 
 		eArray = new LinkedList<String>();
 	}
@@ -40,12 +39,9 @@ public class MyQueue {
 			}
 			// 如果能跳出循环说明队列元素个数小于max
 			eArray.add(e);
-
 			count.incrementAndGet();
-
 			System.out.println("任务入队列: " + e);
 			System.out.println("当前任务队列长度: " + count.get());
-
 			// 通知消费者
 			obj.notify();
 			return eArray;
@@ -59,7 +55,6 @@ public class MyQueue {
 			}
 			// 如果跳出循环说明队列中有元素可取
 			String e = eArray.removeFirst();
-
 			count.decrementAndGet();
 			System.out.println("任务出队列: " + e);
 			System.out.println("当前任务队列长度: " + count.get());
